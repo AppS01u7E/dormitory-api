@@ -1,4 +1,12 @@
 package com.appsolute.soom.dormitoryapi.domain.point.data.response;
 
-public record AddPointResponse() {
+import com.appsolute.soom.dormitoryapi.domain.point.data.type.PointType;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record AddPointResponse(
+        @JsonProperty("accountUUID") String accountUUID,
+        @JsonProperty("updatedRewardPoint") Integer rewardPoint,
+        @JsonProperty("updatedPenaltyPoint") Integer penaltyPoint,
+        @JsonProperty("type") PointType type
+) {
 }

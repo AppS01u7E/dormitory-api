@@ -6,7 +6,5 @@ import com.appsolute.soom.dormitoryapi.domain.point.data.type.PointType;
 public interface PointService {
     PointDto getPointByAccountUUID(String accountUUID);
 
-    PointDto addPoint(PointType type, Integer point);
-
-    PointDto subPoint(PointType type, Integer point);
+    PointDto updatePoint(String accountUUID, PointType type, Integer point);
 }

@@ -30,7 +30,7 @@ public class PointController {
         //요청 데이터를 해석하여 추가할 상벌점 수를 구한다
         if(point == null || point == 0) point = 1;
         //PointService 에 계정 UUID 와 해석한 상벌점 계수를 넘겨주어서 상벌점을 추가한다
-        PointDto updated = pointService.addPoint(type, point);
+        PointDto updated = pointService.addPoint(accountUUID, type, point);
         //추가한 상벌점에 관한 정보를 Response Dto 로 치환한다.
         AddPointResponse response = new AddPointResponse(accountUUID, updated.rewardPoint(), updated.penaltyPoint(), type);
         //치환한 데이터를 body 에 담아서 return 한다.
@@ -44,7 +44,7 @@ public class PointController {
         //요청 데이터를 해석하여 차감할 상벌점 수를 구한다
         if(point == null || point == 0) point = 1;
         //PointService 에 계정 UUID 와 해석한 상벌점 계수를 넘겨주어서 상벌점을 차감한다
-        PointDto updated = pointService.subPoint(type, point);
+        PointDto updated = pointService.subPoint(accountUUID, type, point);
         //차감한 상벌점에 관한 정보를 ResponseDto 로 치환한다.
         SubPointResponse response = new SubPointResponse(accountUUID, updated.rewardPoint(), updated.penaltyPoint(), type);
         //치환한 데이터를 body 에 담아서 return 한다.

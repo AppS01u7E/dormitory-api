@@ -17,8 +17,8 @@ public class PointEntity {
     private Long uuid;
     @Column(unique = true)
     private String accountUUID;
-    private Integer rewardPoint;
-    private Integer penaltyPoint;
+    private int rewardPoint;
+    private int penaltyPoint;
 
     public PointEntity(String accountUUID) {
         this.accountUUID = accountUUID;

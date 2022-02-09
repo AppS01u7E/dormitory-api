@@ -4,11 +4,13 @@ import com.appsolute.soom.dormitoryapi.domain.point.data.dto.PointDto;
 import com.appsolute.soom.dormitoryapi.domain.point.data.entity.PointEntity;
 import com.appsolute.soom.dormitoryapi.domain.point.data.type.PointType;
 import com.appsolute.soom.dormitoryapi.domain.point.repository.PointRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PointServiceImpl implements PointService{
-    PointRepository pointRepository;
+    private final PointRepository pointRepository;
     @Override
     public PointDto getPointByAccountUUID(String accountUUID) {
         return getOrCreatePointEntityByAccountUUID(accountUUID).toDto();

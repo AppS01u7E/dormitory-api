@@ -33,27 +33,14 @@ public class PointController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PutMapping("/{accountUUID}/add") //계정 UUID를 통해 해당 계정에 상점 또는 벌점을 부여한다.
+    @PutMapping("/{accountUUID}") //계정 UUID를 통해 해당 계정에 상점 또는 벌점을 부여한다.
     public ResponseEntity<AddPointResponse> addPoint(@PathVariable String accountUUID,
                                                      @RequestParam PointType type,
-                                                     @RequestParam @Min(1L) int point) {
-        //PointService 에 계정 UUID 와 해석한 상벌점 계수를 넘겨주어서 상벌점을 추가한다
+                                                     @RequestParam int point) {
+        //PointService 에 계정 UUID 와 해석한 상벌점 계수를 넘겨주어서 상벌점을 갱신한다
         PointDto updated = pointService.updatePoint(accountUUID, type, point);
         //추가한 상벌점에 관한 정보를 Response Dto 로 치환한다.
         AddPointResponse response = new AddPointResponse(accountUUID, updated.rewardPoint(), updated.penaltyPoint(), type);
-        //치환한 데이터를 body 에 담아서 return 한다.
-        return ResponseEntity.ok().body(response);
-    }
-
-    @PutMapping("/{accountUUID}/sub") //계정 UUID를 통해 해당 계정에 상점 또는 벌점을 차감한다.
-    @Valid
-    public ResponseEntity<SubPointResponse> subPoint(@PathVariable String accountUUID,
-                                                     @RequestParam PointType type,
-                                                     @RequestParam @Min(1L) int point) {
-        //PointService 에 계정 UUID 와 해석한 상벌점 계수를 넘겨주어서 상벌점을 차감한다
-        PointDto updated = pointService.updatePoint(accountUUID, type, -1 * point);
-        //차감한 상벌점에 관한 정보를 ResponseDto 로 치환한다.
-        SubPointResponse response = new SubPointResponse(accountUUID, updated.rewardPoint(), updated.penaltyPoint(), type);
         //치환한 데이터를 body 에 담아서 return 한다.
         return ResponseEntity.ok().body(response);
     }

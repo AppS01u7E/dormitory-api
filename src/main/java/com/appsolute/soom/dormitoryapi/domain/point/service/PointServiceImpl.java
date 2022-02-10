@@ -20,7 +20,7 @@ public class PointServiceImpl implements PointService{
     public PointDto updatePoint(String accountUUID, PointType type, Integer point) {
         PointEntity entity = getOrCreatePointEntityByAccountUUID(accountUUID);
         switch (type) {
-            case PENALTY -> entity.setPenaltyPoint(Math.max(entity.getPenaltyPoint() + point, 0));
+            case PENALTY -> entity.setPenaltyPoint(entity.getPenaltyPoint() + point);
             case REWARD -> entity.setRewardPoint(Math.max(entity.getRewardPoint() + point, 0));
         }
         return pointRepository.save(entity).toDto();

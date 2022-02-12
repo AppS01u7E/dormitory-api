@@ -5,6 +5,7 @@ import com.appsolute.soom.dormitoryapi.domain.study.data.response.GetReserveList
 import com.appsolute.soom.dormitoryapi.domain.study.data.response.IsReserveResponse;
 import com.appsolute.soom.dormitoryapi.domain.study.data.response.ReserveResponse;
 import com.appsolute.soom.dormitoryapi.domain.study.data.type.SchoolType;
+import com.appsolute.soom.dormitoryapi.domain.study.exception.AlreadyReservedException;
 import com.appsolute.soom.dormitoryapi.domain.study.exception.ReserveNotFoundException;
 import com.appsolute.soom.dormitoryapi.domain.study.service.AccountService;
 import com.appsolute.soom.dormitoryapi.domain.study.service.StudyReserveService;
@@ -63,5 +64,10 @@ public class StudyController {
     @ExceptionHandler(ReserveNotFoundException.class)
     public ResponseEntity<String> handling(ReserveNotFoundException e) {
         return ResponseEntity.notFound().build();
+    }
+
+    @ExceptionHandler(AlreadyReservedException.class)
+    public ResponseEntity<String> handling(AlreadyReservedException e) {
+        return ResponseEntity.badRequest().body("이미 신청하셧습니다!");
     }
 }

@@ -1,6 +1,6 @@
-package com.appsolute.soom.dormitoryapi.domain.study.data.entity;
+package com.appsolute.soom.dormitoryapi.domain.remain.data.entity;
 
-import com.appsolute.soom.dormitoryapi.domain.study.data.dto.ReserveDto;
+import com.appsolute.soom.dormitoryapi.domain.remain.data.dto.RemainDto;
 import com.appsolute.soom.dormitoryapi.global.data.type.SchoolType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,20 +17,20 @@ import java.time.LocalDate;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReserveEntity {
+public class RemainEntity {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String accountUUID;
-    private LocalDate reserveAt;
+    private LocalDate remainAt;
     private SchoolType school;
 
-    public ReserveEntity(String accountUUID, LocalDate reserveAt, SchoolType school) {
+    public RemainEntity(String accountUUID, LocalDate remainAt, SchoolType school) {
         this.accountUUID = accountUUID;
-        this.reserveAt = reserveAt;
+        this.remainAt = remainAt;
         this.school = school;
     }
 
-    public ReserveDto toDto() {
-        return new ReserveDto(id, accountUUID, reserveAt, school);
+    public RemainDto toDto() {
+        return new RemainDto(id, accountUUID, remainAt, school);
     }
 }

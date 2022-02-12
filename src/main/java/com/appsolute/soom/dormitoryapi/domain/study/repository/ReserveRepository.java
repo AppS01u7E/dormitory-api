@@ -1,7 +1,7 @@
 package com.appsolute.soom.dormitoryapi.domain.study.repository;
 
 import com.appsolute.soom.dormitoryapi.domain.study.data.entity.ReserveEntity;
-import com.appsolute.soom.dormitoryapi.domain.study.data.type.SchoolType;
+import com.appsolute.soom.dormitoryapi.global.data.type.SchoolType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 

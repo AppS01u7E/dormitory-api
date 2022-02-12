@@ -1,6 +1,6 @@
-package com.appsolute.soom.dormitoryapi.domain.study.service;
+package com.appsolute.soom.dormitoryapi.global.service;
 
-import com.appsolute.soom.dormitoryapi.domain.study.data.type.SchoolType;
+import com.appsolute.soom.dormitoryapi.global.data.type.SchoolType;
 import org.springframework.stereotype.Service;
 
 @Service

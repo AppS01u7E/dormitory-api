@@ -5,6 +5,7 @@ import com.appsolute.soom.dormitoryapi.domain.study.data.response.GetReserveList
 import com.appsolute.soom.dormitoryapi.domain.study.data.response.IsReserveResponse;
 import com.appsolute.soom.dormitoryapi.domain.study.data.response.ReserveResponse;
 import com.appsolute.soom.dormitoryapi.domain.study.data.type.SchoolType;
+import com.appsolute.soom.dormitoryapi.domain.study.exception.ReserveNotFoundException;
 import com.appsolute.soom.dormitoryapi.domain.study.service.AccountService;
 import com.appsolute.soom.dormitoryapi.domain.study.service.StudyReserveService;
 import lombok.RequiredArgsConstructor;
@@ -57,5 +58,10 @@ public class StudyController {
         // 예약정보를 응답객체에 담아서 반환한다.
         GetReserveListResponse response = new GetReserveListResponse(school, LocalDate.now(), list);
         return ResponseEntity.ok(response);
+    }
+
+    @ExceptionHandler(ReserveNotFoundException.class)
+    public ResponseEntity<String> handling(ReserveNotFoundException e) {
+        return ResponseEntity.notFound().build();
     }
 }

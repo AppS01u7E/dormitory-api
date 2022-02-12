@@ -2,7 +2,7 @@ package com.appsolute.soom.dormitoryapi.domain.study.service;
 
 import com.appsolute.soom.dormitoryapi.domain.study.data.dto.ReserveDto;
 import com.appsolute.soom.dormitoryapi.domain.study.data.entity.ReserveEntity;
-import com.appsolute.soom.dormitoryapi.domain.study.data.type.SchoolType;
+import com.appsolute.soom.dormitoryapi.global.data.type.SchoolType;
 import com.appsolute.soom.dormitoryapi.domain.study.exception.ReserveNotFoundException;
 import com.appsolute.soom.dormitoryapi.domain.study.repository.ReserveRepository;
 import lombok.RequiredArgsConstructor;
